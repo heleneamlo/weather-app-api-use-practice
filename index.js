@@ -13,11 +13,11 @@ app.get("/", function(req,res){
             let weatherDescription = weatherData.weather[0].description;
 
             const icon = weatherData.weather[0].icon;
-            const imageURL = `http://openweathermap.org/ing/wn/${icon}@2x.png`;
+            const imageurl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
             res.write('<head><meta charset="utf-8"></head>');
             res.write("<h1>The temperature in Oslo is "+weatherData.main.temp+" degrees celsius</h1>");
             res.write("<h3>The weather is now "+weatherDescription+"</h3>");
-            res.write(`<h1></h1><img src="${imageURL}" alt="current weather">`)
+            res.write(`<img src="`+imageurl +`" alt="current weather">`)
             res.end();
         })
     })
