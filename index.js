@@ -5,7 +5,10 @@ const app = express();
 
 
 app.get("/", function(req,res){
-    const url = "https://api.openweathermap.org/data/2.5/weather?q=Oslo&units=metric&appid=2ed06f3d16c548cad4bf62c9a5824dfd";
+    const query = "Oslo";
+    const appID = "2ed06f3d16c548cad4bf62c9a5824dfd";
+    const unit = "metric";
+    const url = "https://api.openweathermap.org/data/2.5/weather?q="+query+"&units="+units+"&appid="+appID+"";
     https.get(url, (response)  =>{
         response.on("data", (data)=>{
             let weatherData = JSON.parse(data)
